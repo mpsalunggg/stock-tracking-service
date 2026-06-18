@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Claude Code
+.claude/backups/
+.claude/sessions/
+.claude/file-history/
+.claude/history.jsonl
+.claude/paste-cache/
+
+# Local MCP config (credentials)
+.mcp.json
+
+# Database (if local)
+*.db
+*.sqlite
