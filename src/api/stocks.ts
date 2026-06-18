@@ -8,7 +8,19 @@ const router = Router();
 // GET /api/stocks - List all stocks
 router.get(
   '/',
-  asyncHandler(async (_req: Request, res: Response) => {
+  asyncHandler(async (req: Request, res: Response) => {
+    const { q } = req.query;
+
+    if (q && typeof q === 'string') {
+      const stock = await stockRepository.findBySymbol(q);
+      if (!stock) {
+        res.json({ success: true, data: [] });
+        return;
+      }
+      res.json({ success: true, data: [stock] });
+      return;
+    }
+
     const stocks = await stockRepository.findAll();
     res.json({ success: true, data: stocks });
   })
