@@ -81,7 +81,7 @@ describe('StockRepository', () => {
     });
 
     it('should return null for non-existent id', async () => {
-      const stock = await stockRepository.findById('non-existent-id');
+      const stock = await stockRepository.findById('00000000-0000-0000-0000-000000000000');
       expect(stock).toBeNull();
     });
   });
@@ -101,7 +101,7 @@ describe('StockRepository', () => {
     });
 
     it('should return null for non-existent id', async () => {
-      const updated = await stockRepository.update('non-existent', { price: 100 });
+      const updated = await stockRepository.update('00000000-0000-0000-0000-000000000000', { price: 100 });
       expect(updated).toBeNull();
     });
   });
@@ -123,7 +123,7 @@ describe('StockRepository', () => {
     });
 
     it('should return false for non-existent id', async () => {
-      const deleted = await stockRepository.delete('non-existent');
+      const deleted = await stockRepository.delete('00000000-0000-0000-0000-000000000000');
       expect(deleted).toBe(false);
     });
   });
